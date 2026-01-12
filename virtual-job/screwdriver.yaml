@@ -2,10 +2,10 @@ version: 2
 
 jobs:
   jobA:
-    requires: [ ~commit ]
     image: screwdrivercd/noop-container
+    requires: [ ~commit ]
     steps:
-        - sd-setup-scm: echo no-op
+        - setup-scm: echo no-op
     annotations:
       screwdriver.cd/virtualJob: true
     blockedBy: [ ~jobB, ~jobC ]
