@@ -1,0 +1,21 @@
+version: 2
+
+jobs:
+  jobA:
+    requires: [ ~commit ]
+    annotations:
+      screwdriver.cd/virtualJob: true
+    blockedBy: [ ~jobB, ~jobC ]
+    
+  jobB:
+    image: docker.ouroath.com:4443/linux/rhel8-ubi:latest
+    requires: [~jobA]
+    steps:
+        - keep-running: |
+            sleep 500
+  jobC:
+    image: docker.ouroath.com:4443/linux/rhel8-ubi:latest
+    requires: [~jobB]
+    steps:
+        - keep-running: |
+            sleep 1000
