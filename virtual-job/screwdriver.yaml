@@ -18,9 +18,19 @@ jobs:
         - keep-running: |
             sleep 60
     freezeWindows: ['* 0-3 ? * *']
+    
   jobC:
+    image: screwdrivercd/noop-container
+    requires: [ ~jobB ]
+    steps:
+        - setup-scm: echo no-op
+    annotations:
+      screwdriver.cd/virtualJob: true
+    blockedBy: [ ~jobB ]
+    
+  jobD:
     image: node:20
-    requires: [~jobB]
+    requires: [~jobC]
     steps:
         - keep-running: |
             sleep 30
