@@ -16,7 +16,7 @@ jobs:
     steps:
         - keep-running: |
             sleep 10
-    freezeWindows: ['* 0-4 ? * *']
+    freezeWindows: ['* 0-3 ? * *']
   jobC:
     image: node:20
     requires: [~jobA]
