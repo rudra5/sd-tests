@@ -33,4 +33,4 @@ jobs:
     requires: [~jobC]
     steps:
         - keep-running: |
-            sleep 60
+            sleep 120
