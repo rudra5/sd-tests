@@ -17,7 +17,7 @@ jobs:
     steps:
         - keep-running: |
             sleep 20
-    freezeWindows: ['* 0-3 ? * *']
+    freezeWindows: ['* 22-23 ? * *']
     
   jobC:
     image: screwdrivercd/noop-container
