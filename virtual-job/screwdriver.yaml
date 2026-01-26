@@ -9,15 +9,13 @@ jobs:
     annotations:
       screwdriver.cd/virtualJob: true
     blockedBy: [ ~jobB ]
-    freezeWindows: ['* 0-20 ? * *']
     
   jobB:
     image: node:20
     requires: [~jobA]
     steps:
         - keep-running: |
-            sleep 5
-    freezeWindows: ['* 22-23 ? * *']
+            sleep 120
     
   jobC:
     image: screwdrivercd/noop-container
