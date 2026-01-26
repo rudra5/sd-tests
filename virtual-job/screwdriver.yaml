@@ -6,6 +6,8 @@ jobs:
     requires: [ ~commit ]
     steps:
         - setup-scm: echo no-op
+    annotations:
+      screwdriver.cd/virtualJob: true
     blockedBy: [ ~jobB ]
     
   jobB:
