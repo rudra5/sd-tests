@@ -15,7 +15,7 @@ jobs:
     requires: [~jobA]
     steps:
         - keep-running: |
-            sleep 120
+            sleep 90
     
   jobC:
     image: screwdrivercd/noop-container
@@ -31,4 +31,4 @@ jobs:
     requires: [~jobC]
     steps:
         - keep-running: |
-            sleep 120
+            sleep 180
