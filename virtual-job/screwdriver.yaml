@@ -8,13 +8,14 @@ jobs:
         - setup-scm: echo no-op
     annotations:
       screwdriver.cd/virtualJob: true
+    blockedBy: [ ~jobB ]
     
   jobB:
     image: node:20
     requires: [~jobA]
     steps:
         - keep-running: |
-            sleep 5
+            sleep 120
     
   jobC:
     image: screwdrivercd/noop-container
